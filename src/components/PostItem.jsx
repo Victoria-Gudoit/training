@@ -1,9 +1,11 @@
 import React from "react";
 
-export const PostItem = ({ post }) => {
+export const PostItem = (props) => {
   return (
     <div>
-      <h1>{post.title}</h1>
+      <span>{props.number}</span>
+      <h1>{props.post.title}</h1>
+      <p>{props.post.body}</p>
     </div>
   );
 };
