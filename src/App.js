@@ -8,6 +8,7 @@ import { MyInput } from "./components/UI/input/MyInput";
 import { PostForm } from "./components/PostForm";
 import { MySelect } from "./components/UI/select/MySelect";
 import { PostFilter } from "./components/PostFilter";
+import { MyModal } from "./components/UI/MyModal/MyModal";
 
 function App() {
   const [posts, setPosts] = useState([{ id: 1, title: "js", body: "dfdfxfv" },
@@ -38,7 +39,8 @@ return sortedPosts.filter(post => post.title.toLowerCase().includes(filter.query
 
   return (
     <div>
-<PostForm create={createPost}/>
+      <MyModal><PostForm create={createPost}/></MyModal>
+
 <hr style={{margin: '15px 0'}}/>
 <PostFilter filter={filter} setFilter={setFilter}/>
 {<PostList deletePost={deletePost} post={sortedAndSearchedPosts}/>}
