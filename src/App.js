@@ -23,7 +23,8 @@ setPosts([...posts, newPost])
   return (
     <div>
 <PostForm create={createPost}/>
-   <PostList deletePost={deletePost} post={posts}/>
+{posts.length ? <PostList deletePost={deletePost} post={posts}/> : <div>Посты не найдены</div>}
+   
     </div>
   );
 }
