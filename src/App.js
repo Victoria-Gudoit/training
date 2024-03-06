@@ -7,7 +7,7 @@ import { MyButton } from "./components/UI/button/MyButton";
 import { MyInput } from "./components/UI/input/MyInput";
 
 function App() {
-  const [post, setPost] = useState([{ id: 1, title: "js", body: "dfdfxfv" },
+  const [posts, setPosts] = useState([{ id: 1, title: "js", body: "dfdfxfv" },
   { id: 2, title: "css", body: "gg" }]);
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
@@ -21,7 +21,9 @@ const newPost = {
   title: title,
   body: 'fbngv'
 }
-setPost([...post, newPost])
+setPosts([...posts, newPost])
+setTitle('')
+setBody('')
 
   }
 
@@ -32,7 +34,7 @@ setPost([...post, newPost])
         <MyInput value={body} onChange={({target}) => setBody(target.value)} type="text" placeholder="Описание поста"/>
 <MyButton onClick={addNewPost}>Создать пост</MyButton>
       </form>
-   <PostList post={post}/>
+   <PostList post={posts}/>
     </div>
   );
 }
