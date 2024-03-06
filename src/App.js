@@ -5,35 +5,27 @@ import { PostItem } from "./components/PostItem";
 import { PostList } from "./components/PostList";
 import { MyButton } from "./components/UI/button/MyButton";
 import { MyInput } from "./components/UI/input/MyInput";
+import { PostForm } from "./components/PostForm";
 
 function App() {
   const [posts, setPosts] = useState([{ id: 1, title: "js", body: "dfdfxfv" },
   { id: 2, title: "css", body: "gg" }]);
   // const [title, setTitle] = useState('')
   // const [body, setBody] = useState('')
-const [post, setPost] = useState([{title: '', body: ''}])
 
+  const createPost = (newPost) => {
+setPosts([...posts, newPost])
+  }
 
-  const addNewPost = (event) => {
-    event.preventDefault()
-// const newPost = {
-//   id: Date.now(),
-//   title: post.title,
-//   body: 'fbngv'
-// }
-setPosts([...posts, {...post, id: Date.now()}])
-setPost({ title: '', body: ''})
-
+  const deletePost = (id) => {
+    const newPosts = posts.filter(post => post.id !== id)
+    setPosts(newPosts)
   }
 
   return (
     <div>
-      <form>
-        <MyInput  value={post.title} onChange={({target}) => setPost({...post, title: target.value})} type="text" placeholder="Название поста"/>
-        <MyInput value={post.body} onChange={({target}) => setPost({...post, body: target.value})} type="text" placeholder="Описание поста"/>
-<MyButton onClick={addNewPost}>Создать пост</MyButton>
-      </form>
-   <PostList post={posts}/>
+<PostForm create={createPost}/>
+   <PostList deletePost={deletePost} post={posts}/>
     </div>
   );
 }
