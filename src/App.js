@@ -10,8 +10,6 @@ import { PostForm } from "./components/PostForm";
 function App() {
   const [posts, setPosts] = useState([{ id: 1, title: "js", body: "dfdfxfv" },
   { id: 2, title: "css", body: "gg" }]);
-  // const [title, setTitle] = useState('')
-  // const [body, setBody] = useState('')
 
   const createPost = (newPost) => {
 setPosts([...posts, newPost])
