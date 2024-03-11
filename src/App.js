@@ -14,6 +14,7 @@ function App() {
   const [posts, setPosts] = useState([{ id: 1, title: "js", body: "dfdfxfv" },
   { id: 2, title: "css", body: "gg" }]);
 const [filter, setFilter] = useState({sort: '', query: ''})
+const [modal, setModal] = useState(false)
 
 
   const sortedPosts = useMemo(() => {
@@ -25,6 +26,7 @@ const [filter, setFilter] = useState({sort: '', query: ''})
 
   const createPost = (newPost) => {
 setPosts([...posts, newPost])
+setModal(false)
   }
 
   const sortedAndSearchedPosts = useMemo(() => {
@@ -39,7 +41,8 @@ return sortedPosts.filter(post => post.title.toLowerCase().includes(filter.query
 
   return (
     <div>
-      <MyModal><PostForm create={createPost}/></MyModal>
+      <button style={{marginTop: 30}} onClick={() => setModal(true)}>Создать пользователя</button>
+      <MyModal visible={modal} setVisible={setModal}><PostForm create={createPost}/></MyModal>
 
 <hr style={{margin: '15px 0'}}/>
 <PostFilter filter={filter} setFilter={setFilter}/>
