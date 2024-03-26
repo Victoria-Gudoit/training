@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import { PostList } from "./components/PostList";
-import { PostForm } from "./components/PostForm";
-import { PostFilter } from "./components/PostFilter";
-import { MyModal } from "./components/UI/MyModal/MyModal";
-import { usePosts } from "./hooks/usePosts";
-import PostService from "./API/PostService";
-import { Loader } from "./components/UI/Loader/Loader";
-import { useFetching } from "./hooks/useFetching";
-import cl from "./styles/module.style.css"
-import { getPageCount } from "./utils/pages";
-import { Pagination } from "./components/UI/Pagination/Pagination";
+
+import cl from "../../styles/module.style.css"
+
+import { PostList } from "../PostList";
+import { getPageCount } from "../../utils/pages";
+import { usePosts } from "../../hooks/usePosts";
+import { MyModal } from "../UI/MyModal/MyModal";
+import { PostFilter } from "../PostFilter";
+import { Pagination } from "../UI/Pagination/Pagination";
+import { Loader } from "../UI/Loader/Loader";
+import { PostForm } from "../PostForm";
+import PostService from "../../API/PostService";
+import { useFetching } from "../../hooks/useFetching";
 
 function Posts() { //не смотреть 
   const [posts, setPosts] = useState([{ id: 1, title: "js", body: "dfdfxfv" },
